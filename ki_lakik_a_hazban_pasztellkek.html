@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ki lakik a házban?</title>
+<style>
+:root{
+  --bg:#eaf7ff;--bg2:#d8efff;--card:#ffffff;--ink:#123047;--muted:#5f7890;
+  --blue:#69bce8;--blue2:#2f8ec4;--blue3:#bfe9ff;--line:#cbe8f8;--danger:#d95f73;--ok:#3fa785;
+  --shadow:0 18px 45px rgba(29,117,164,.14);
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 15% 0%,#fff 0,#f3fbff 24%,var(--bg) 62%,var(--bg2));color:var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:22px}.topbar{position:sticky;top:0;z-index:20;background:rgba(234,247,255,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(203,232,248,.9)}.topbar .wrap{padding-top:12px;padding-bottom:12px;display:flex;justify-content:space-between;gap:10px;align-items:center}.brand{font-weight:950;letter-spacing:-.3px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.hero{padding:34px 0 20px;text-align:center}.badge{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--blue2);border-radius:999px;padding:8px 13px;font-weight:850;font-size:13px;box-shadow:0 8px 20px rgba(47,142,196,.08)}h1{font-size:clamp(38px,8vw,78px);line-height:.9;margin:18px 0 12px;letter-spacing:-2.6px}h2{margin:0 0 12px;font-size:28px}h3{margin:0 0 12px}.lead{font-size:18px;line-height:1.55;color:var(--muted);max-width:800px;margin:0 auto}.card{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:28px;padding:22px;box-shadow:var(--shadow)}.hidden{display:none!important}.muted{color:var(--muted)}.small{font-size:13px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}input,select,button{font:inherit}input,select{width:100%;border:1px solid var(--line);background:#fbfeff;border-radius:16px;padding:14px 14px;color:var(--ink);outline:none}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(105,188,232,.16)}button{border:0;border-radius:16px;padding:13px 18px;font-weight:900;cursor:pointer;background:linear-gradient(135deg,var(--blue),var(--blue2));color:white;box-shadow:0 10px 22px rgba(47,142,196,.22)}button.secondary{background:#fff;color:var(--blue2);border:1px solid var(--line);box-shadow:none}button.danger{background:var(--danger)}button.ok{background:var(--ok)}button:disabled{opacity:.5;cursor:not-allowed}.grid2{display:grid;grid-template-columns:1fr;gap:18px}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;font-weight:900;color:var(--blue2)}.progress{height:11px;background:#dff2ff;border-radius:999px;overflow:hidden;margin:14px 0 18px}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--ok));transition:.2s}.q{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:18px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,#fbfeff);border-radius:22px;margin:14px 0}.num{width:46px;height:46px;border-radius:16px;background:var(--blue3);display:grid;place-items:center;color:var(--blue2);font-weight:1000}.fact{font-size:17px;font-weight:850;line-height:1.38;margin:2px 0 12px}.success{text-align:center;padding:30px}.check{font-size:54px}.scoreBig{font-size:clamp(38px,8vw,76px);font-weight:1000;color:var(--blue2);line-height:1;margin:12px 0}.scoreMsg{font-size:18px;font-weight:850;color:var(--ink);margin-bottom:16px}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:20px;background:#fff}table{border-collapse:collapse;width:100%;min-width:850px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#e5f6ff;color:var(--ink);position:sticky;top:0}.statItem,.revealItem{padding:14px;border:1px solid var(--line);border-radius:18px;background:#fff;margin:10px 0}.winner{font-weight:950;color:var(--ok)}.wrong{color:var(--danger);font-weight:900}.footer{padding:32px 0 48px;text-align:center;color:var(--muted);font-size:13px}.house{font-size:44px;filter:drop-shadow(0 10px 18px rgba(47,142,196,.18))}@media(min-width:860px){.grid2{grid-template-columns:1.15fr .85fr}.adminGrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><div class="brand">🏡 Ki lakik a házban?</div><div class="tabs"><button class="secondary" onclick="show('play')">Játék</button><button class="secondary" onclick="show('adminLogin')">Admin</button></div></div></div>
+<main class="wrap">
+<section class="hero"><div class="house">🏡</div><span class="badge">20 vezető · 20 történet · pontszám a végén</span><h1>Ki lakik a házban?</h1><p class="lead">Olvasd el az állításokat, és tippeld meg, melyik vezetőre igazak. A beküldés után látni fogod, hány választ találtál el, de a helyes megfejtéseket közösen fedjük fel.</p></section>
+<section id="play" class="card">
+  <div id="startBox" class="grid2">
+    <div><h2>Játék indítása</h2><p class="muted">Az állításokat a rendszer összekeveri. Minden kérdésnél válassz egy nevet a listából.</p></div>
+    <div><label><b>Játékos neve</b><input id="playerName" placeholder="pl. Kiss Anna" /></label><br><br><button onclick="startGame()">Kezdés</button></div>
+  </div>
+  <div id="gameBox" class="hidden">
+    <div class="row" style="justify-content:space-between"><div><b id="hello"></b><div class="small muted">Minden állítás kötelező.</div></div><div class="pill"><span id="answered">0</span>/20 kész</div></div><div class="progress"><div id="bar" class="bar"></div></div><form id="quizForm" onsubmit="submitGame(event)"></form>
+  </div>
+  <div id="thanksBox" class="hidden success"><div class="check">✅</div><h2>Köszönjük!</h2><div id="scoreBox" class="scoreBig"></div><p class="muted">A válaszaidat sikeresen rögzítettük. A részletes megfejtéseket később közösen fedjük fel.</p><button class="secondary" onclick="location.reload()">Új kitöltés</button></div>
+</section>
+<section id="adminLogin" class="card hidden"><h2>Adminfelület</h2><p class="muted">Itt látod a kitöltéseket, pontszámokat és összesített statisztikákat.</p><div class="row"><input id="adminPass" type="password" placeholder="Admin jelszó" style="max-width:280px"><button onclick="adminLogin()">Belépés</button></div><p class="small muted">Jelszó: <b>tabor2026</b></p></section>
+<section id="admin" class="hidden">
+  <div class="card"><div class="row" style="justify-content:space-between"><div><h2>Admin dashboard</h2><p class="muted">Offline demó: az adatok ebben a böngészőben mentődnek. Online élesítéshez Firebase/Google Sheet háttér kell.</p></div><div class="row"><button class="ok" onclick="exportCSV()">CSV export</button><button class="danger" onclick="clearData()">Adatok törlése</button></div></div></div>
+  <div class="adminGrid"><div class="card"><h3>Leaderboard</h3><div id="summary"></div></div><div class="card"><h3>Legmegtévesztőbb állítások</h3><div id="hardest"></div></div></div>
+  <div class="card"><h3>Eredményhirdető nézet</h3><p class="muted">Ezzel sorban fedheted fel a helyes válaszokat.</p><div class="row"><button class="secondary" onclick="prevReveal()">Előző</button><button onclick="nextReveal()">Következő</button></div><div id="reveal"></div></div>
+  <div class="card"><h3>Ki kire szavazott?</h3><div id="answers"></div></div>
+</section>
+<div class="footer">Pasztellkék offline verzió</div>
+</main>
+<script>
+const PEOPLE=["Bánky Özséb","Bedics Zsófi","Bejczky-Kovács Flóra","Csörgő Réka","Demeter Gosti","Dudás Zsuzsi","Ecsenyi Gergely","Elek Laci atya","Gerstner Laura","Goda Zsófi","Gundel-Takács Anna","Hős Sára","Kisdi Bence","Latinovics Ádi","Nagy Anna Zsófia","Óvári Kata","Perczel Ágoston","Szabó Dóri","Szarka Juli","Vincze Bori"];
+const FACTS=[
+{person:"Bánky Özséb",fact:"Hat évesen a tikkasztó nyári hőségben fekete gúnyába bújt, mert nidzsásat játszott."},
+{person:"Bedics Zsófi",fact:"A születésnapján mindig tűzijáték van, hiszen augusztus 20-án született."},
+{person:"Bejczky-Kovács Flóra",fact:"Az az életcélja, hogy egy bölcs nagymama legyen."},
+{person:"Csörgő Réka",fact:"Vezetett már traktort életében."},
+{person:"Demeter Gosti",fact:"A családja otthonában ő vágja le a csirkét ebédre."},
+{person:"Dudás Zsuzsi",fact:"Levendulával issza a kávét."},
+{person:"Ecsenyi Gergely",fact:"Lábasból, serpenyőből eszi az abban melegített ebédet/vacsorát."},
+{person:"Elek Laci atya",fact:"Szabadidejében egy felnőtteket is elbíró vasutat épít a kertjében."},
+{person:"Gerstner Laura",fact:"Egyszer Izlandon kizárta magát a lakókocsijából. A helyi camping tulajdonosa megkönyörült rajta és beengedte a takarító szertárba, így végül ott aludt."},
+{person:"Goda Zsófi",fact:"10 évesen visszafordított egy menetrend szerinti buszt féltávon, mert a testvérei lekésték azt."},
+{person:"Gundel-Takács Anna",fact:"Egyszer egy cápa olyan közel úszott hozzá, hogy az utolsó pillanatban az uszonyával kellett eltolni a ragadozó orrát."},
+{person:"Hős Sára",fact:"Pár évvel ezelőtt eladott egy autót Horvátországban."},
+{person:"Kisdi Bence",fact:"Kis hableány Csókra vár című betétdalát álmából felkelve is átéléssel tudja énekelni."},
+{person:"Latinovics Ádi",fact:"Tudja mozgatni a fülét, és hullámoztatni a szemöldökét."},
+{person:"Nagy Anna Zsófia",fact:"Egyszer aligátorok között kenuzott."},
+{person:"Óvári Kata",fact:"Egyszer épített egy tyúkólat a messzi, közép-amerikai Mexikóban."},
+{person:"Perczel Ágoston",fact:"Szereti feszegetni a határait, ezért például 2600 km-es gyalogos zarándokút megtételére is vállalkozott már."},
+{person:"Szabó Dóri",fact:"Mielőtt megvásárol egy könyvet, elolvassa annak utolsó mondatát. Csak akkor veszi meg, ha arra jut: jó vége lesz."},
+{person:"Szarka Juli",fact:"Kicsi korában félt a Holdtól, ma viszont a feketelyukakat kutatja."},
+{person:"Vincze Bori",fact:"Ha fél, mindig el kezd énekelni."}
+];
+let currentOrder=[], revealIndex=0;
+function shuffle(a){const x=[...a];for(let i=x.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
+function show(id){['play','adminLogin','admin'].forEach(x=>document.getElementById(x).classList.add('hidden'));document.getElementById(id).classList.remove('hidden'); if(id==='admin') renderAdmin(); window.scrollTo(0,0)}
+function startGame(){const name=document.getElementById('playerName').value.trim(); if(!name){alert('Írd be a neved.');return} currentOrder=shuffle(FACTS); document.getElementById('startBox').classList.add('hidden');document.getElementById('gameBox').classList.remove('hidden');document.getElementById('hello').textContent='Szia, '+name+'!'; const f=document.getElementById('quizForm'); f.innerHTML=''; currentOrder.forEach((q,i)=>{const div=document.createElement('div');div.className='q';div.innerHTML=`<div class="num">${i+1}</div><div><div class="fact">${q.fact}</div><select required data-person="${q.person.replaceAll('"','&quot;')}" onchange="updateProgress()"><option value="">Válassz egy vezetőt…</option>${PEOPLE.map(p=>`<option>${p}</option>`).join('')}</select></div>`; f.appendChild(div)}); const b=document.createElement('button');b.type='submit';b.textContent='Beküldöm a tippjeimet';b.style.marginTop='12px';f.appendChild(b); updateProgress()}
+function updateProgress(){const selects=[...document.querySelectorAll('#quizForm select')];const n=selects.filter(s=>s.value).length;document.getElementById('answered').textContent=n;document.getElementById('bar').style.width=(n/FACTS.length*100)+'%'}
+function submitGame(e){e.preventDefault(); const name=document.getElementById('playerName').value.trim(); const answers=[...document.querySelectorAll('#quizForm select')].map(s=>({fact:s.closest('.q').querySelector('.fact').textContent,correct:s.dataset.person,guess:s.value,ok:s.value===s.dataset.person})); const score=answers.filter(a=>a.ok).length; const rows=JSON.parse(localStorage.getItem('ki_lakik_a_hazban_answers')||'[]'); rows.push({name,at:new Date().toLocaleString('hu-HU'),score,answers}); localStorage.setItem('ki_lakik_a_hazban_answers',JSON.stringify(rows)); const msg=score===20?'Hihetetlen! Tökéletes találat!':score>=15?'Nagyon szép eredmény!':score>=10?'Szép munka!': 'Köszi a játékot!'; document.getElementById('scoreBox').innerHTML=`<div>${score}/20 helyes</div><div class="scoreMsg">${msg}</div>`; document.getElementById('gameBox').classList.add('hidden');document.getElementById('thanksBox').classList.remove('hidden')}
+function adminLogin(){if(document.getElementById('adminPass').value==='tabor2026'){show('admin')}else alert('Hibás jelszó.')}
+function getRows(){return JSON.parse(localStorage.getItem('ki_lakik_a_hazban_answers')||'[]')}
+function renderAdmin(){const rows=getRows(); renderSummary(rows); renderHardest(rows); renderAnswers(rows); renderReveal()}
+function renderSummary(rows){const el=document.getElementById('summary'); if(!rows.length){el.innerHTML='<p class="muted">Még nincs kitöltés.</p>';return} const scored=rows.map(r=>({name:r.name,score:r.answers.filter(a=>a.ok).length,at:r.at})).sort((a,b)=>b.score-a.score); el.innerHTML=scored.map((s,i)=>`<div class="statItem"><b>${i+1}. ${s.name}</b><br><span class="winner">${s.score}/20 találat</span><br><span class="small muted">${s.at}</span></div>`).join('')}
+function renderHardest(rows){const el=document.getElementById('hardest'); if(!rows.length){el.innerHTML='<p class="muted">Még nincs adat.</p>';return} const stats=FACTS.map(f=>{let total=0,ok=0, guesses={}; rows.forEach(r=>{const a=r.answers.find(x=>x.correct===f.person); if(a){total++; if(a.ok)ok++; guesses[a.guess]=(guesses[a.guess]||0)+1}}); return {...f,total,ok,wrong:total-ok,guesses}}).sort((a,b)=>b.wrong-a.wrong); el.innerHTML=stats.map(s=>`<div class="statItem"><b>${s.fact}</b><br><span class="wrong">${s.wrong}</span> rossz / ${s.total} kitöltés<br><span class="small muted">Helyes: ${s.person}</span></div>`).join('')}
+function renderAnswers(rows){const el=document.getElementById('answers'); if(!rows.length){el.innerHTML='<p class="muted">Még nincs kitöltés.</p>';return} let html='<div class="tableWrap"><table><thead><tr><th>Játékos</th><th>Állítás</th><th>Tipp</th><th>Helyes válasz</th><th>OK?</th></tr></thead><tbody>'; rows.forEach(r=>r.answers.forEach(a=>{html+=`<tr><td><b>${r.name}</b><br><span class="small muted">${r.at}</span></td><td>${a.fact}</td><td>${a.guess}</td><td>${a.correct}</td><td>${a.ok?'✅':'❌'}</td></tr>`})); html+='</tbody></table></div>'; el.innerHTML=html}
+function renderReveal(){const f=FACTS[revealIndex];document.getElementById('reveal').innerHTML=`<div class="revealItem"><div class="small muted">${revealIndex+1}/20</div><h3>${f.fact}</h3><p>Helyes válasz: <span class="winner">${f.person}</span></p></div>`}
+function nextReveal(){revealIndex=Math.min(FACTS.length-1,revealIndex+1);renderReveal()}function prevReveal(){revealIndex=Math.max(0,revealIndex-1);renderReveal()}
+function exportCSV(){const rows=getRows(); if(!rows.length){alert('Nincs exportálható adat.');return} let csv='Játékos;Idő;Állítás;Tipp;Helyes válasz;Talált\n'; rows.forEach(r=>r.answers.forEach(a=>{csv += [r.name,r.at,a.fact,a.guess,a.correct,a.ok?'igen':'nem'].map(x=>'"'+String(x).replaceAll('"','""')+'"').join(';')+'\n'})); const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}); const url=URL.createObjectURL(blob); const a=document.createElement('a');a.href=url;a.download='ki_lakik_a_hazban_valaszok.csv';a.click();URL.revokeObjectURL(url)}
+function clearData(){if(confirm('Biztosan törlöd az összes mentett választ?')){localStorage.removeItem('ki_lakik_a_hazban_answers');renderAdmin()}}
+show('play');
+</script>
+</body>
+</html>
